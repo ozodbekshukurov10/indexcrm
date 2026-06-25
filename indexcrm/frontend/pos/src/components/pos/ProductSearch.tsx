@@ -75,8 +75,8 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
   }
 
   return (
-    <section className="flex min-h-0 flex-1 flex-col border-r border-slate-200 bg-slate-50">
-      <div className="border-b border-slate-200 p-3">
+    <section className="flex min-h-0 flex-1 flex-col border-r border-white/20 bg-white/20 backdrop-blur-sm">
+      <div className="border-b border-white/20 p-3">
         <div className="relative">
           <Search
             aria-hidden="true"
@@ -96,13 +96,13 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
               }
             }}
             placeholder="Mahsulot qidirish"
-            className="h-12 w-full rounded-xl border border-slate-200/80 bg-white pl-11 pr-4 text-base font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-12 w-full rounded-xl pl-11 pr-4 text-base font-semibold text-slate-900 placeholder:text-slate-400 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
         </div>
         {enterNotice ? (
           <div
             role="status"
-            className="mt-2 animate-fade-in rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-800"
+            className="mt-2 animate-fade-in rounded-xl border border-amber-200/60 bg-amber-50/80 px-4 py-2.5 text-sm font-bold text-amber-800 backdrop-blur-sm"
           >
             {enterNotice}
           </div>
@@ -110,7 +110,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
         {enterLoading ? (
           <div
             role="status"
-            className="mt-2 flex animate-fade-in items-center gap-2 rounded-xl border border-primary-200 bg-primary-50 px-4 py-2.5 text-sm font-bold text-primary-700"
+            className="mt-2 flex animate-fade-in items-center gap-2 rounded-xl border border-primary-200/60 bg-primary-50/80 px-4 py-2.5 text-sm font-bold text-primary-700 backdrop-blur-sm"
           >
             <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
             Mahsulot qidirilmoqda
@@ -119,7 +119,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto p-3">
         {!isSearchReady ? (
-          <div className="flex min-h-48 flex-col items-center justify-center rounded-xl border border-slate-200/80 bg-white p-6 text-center shadow-sm">
+          <div className="glass-card flex min-h-48 flex-col items-center justify-center rounded-xl p-6 text-center shadow-glass">
             <Search aria-hidden="true" className="mb-3 h-8 w-8 text-slate-300" />
             <div className="text-base font-bold text-slate-700">
               Qidirish uchun yozishda davom eting
@@ -131,7 +131,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
         ) : null}
 
         {isSearchReady && productsQuery.isLoading ? (
-          <div className="flex min-h-48 flex-col items-center justify-center rounded-xl border border-slate-200/80 bg-white p-6 text-center shadow-sm">
+          <div className="glass-card flex min-h-48 flex-col items-center justify-center rounded-xl p-6 text-center shadow-glass">
             <Loader2
               aria-hidden="true"
               className="mb-3 h-8 w-8 animate-spin text-primary-500"
@@ -146,7 +146,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
         ) : null}
 
         {isSearchReady && productsQuery.isError ? (
-          <div className="flex min-h-48 flex-col items-center justify-center rounded-xl border border-rose-200 bg-rose-50 p-6 text-center shadow-sm">
+          <div className="glass-card flex min-h-48 flex-col items-center justify-center rounded-xl border-rose-200/60 bg-rose-50/80 p-6 text-center shadow-glass">
             <AlertCircle aria-hidden="true" className="mb-3 h-8 w-8 text-rose-500" />
             <div className="text-base font-bold text-rose-800">
               Mahsulotlarni yuklab bo'lmadi
@@ -157,7 +157,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
             <button
               type="button"
               onClick={() => void productsQuery.refetch()}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-rose-200 bg-white px-4 py-2.5 text-sm font-bold text-rose-700 shadow-sm transition hover:bg-rose-100"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-rose-200/60 bg-white/60 px-4 py-2.5 text-sm font-bold text-rose-700 shadow-glass backdrop-blur-sm transition hover:bg-white/80"
             >
               <RotateCw aria-hidden="true" className="h-4 w-4" />
               Qayta urinish
@@ -171,7 +171,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
               <button
                 key={product.id}
                 onClick={() => onSelectProduct(product)}
-                className="flex min-h-24 flex-col items-start justify-between rounded-xl border border-slate-200/80 bg-white p-4 text-left shadow-sm transition hover:border-primary-200 hover:bg-primary-50/50 hover:shadow-md focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                className="glass-card flex min-h-24 flex-col items-start justify-between rounded-xl p-4 text-left shadow-glass transition hover:bg-white/70 hover:shadow-glass-lg focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               >
                 <span className="line-clamp-2 text-sm font-black text-slate-900">
                   {product.name}
@@ -188,7 +188,7 @@ export function ProductSearch({ onSelectProduct }: ProductSearchProps) {
         ) : null}
 
         {isSearchReady && productsQuery.isSuccess && products.length === 0 ? (
-          <div className="flex min-h-48 flex-col items-center justify-center rounded-xl border border-slate-200/80 bg-white p-6 text-center shadow-sm">
+          <div className="glass-card flex min-h-48 flex-col items-center justify-center rounded-xl p-6 text-center shadow-glass">
             <PackageSearch
               aria-hidden="true"
               className="mb-3 h-8 w-8 text-slate-300"

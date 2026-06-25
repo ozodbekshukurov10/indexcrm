@@ -10,28 +10,23 @@ type StatCardProps = {
 
 const toneClasses = {
   blue: {
-    card: "border-blue-200/60 bg-blue-50/60",
-    icon: "bg-blue-100 text-blue-600",
+    icon: "bg-blue-100/80 text-blue-600",
     value: "text-blue-950",
   },
   green: {
-    card: "border-emerald-200/60 bg-emerald-50/60",
-    icon: "bg-emerald-100 text-emerald-600",
+    icon: "bg-emerald-100/80 text-emerald-600",
     value: "text-emerald-950",
   },
   amber: {
-    card: "border-amber-200/60 bg-amber-50/60",
-    icon: "bg-amber-100 text-amber-600",
+    icon: "bg-amber-100/80 text-amber-600",
     value: "text-amber-950",
   },
   rose: {
-    card: "border-rose-200/60 bg-rose-50/60",
-    icon: "bg-rose-100 text-rose-600",
+    icon: "bg-rose-100/80 text-rose-600",
     value: "text-rose-950",
   },
   slate: {
-    card: "border-slate-200/60 bg-white",
-    icon: "bg-slate-100 text-slate-600",
+    icon: "bg-slate-100/80 text-slate-600",
     value: "text-slate-900",
   },
 };
@@ -47,7 +42,7 @@ export function StatCard({
 
   return (
     <section
-      className={`rounded-xl border p-5 shadow-sm transition hover:shadow-md ${colors.card}`}
+      className={`glass-card rounded-xl p-5 shadow-glass transition hover:shadow-glass-lg`}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
@@ -58,7 +53,7 @@ export function StatCard({
             {value}
           </p>
         </div>
-        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${colors.icon}`}>
+        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl backdrop-blur-sm ${colors.icon}`}>
           <Icon aria-hidden="true" className="h-5 w-5" />
         </div>
       </div>

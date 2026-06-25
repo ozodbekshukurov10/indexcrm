@@ -8,7 +8,7 @@ export function LoadingState({
   description = "Boshqaruv paneli ma'lumotlari tayyorlanmoqda.",
 }: LoadingStateProps) {
   return (
-    <div className="grid gap-3 rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
+    <div className="glass-card grid gap-3 rounded-xl p-4 shadow-glass">
       <div>
         <div className="text-sm font-bold uppercase tracking-wider text-slate-400">{label}</div>
         <div className="mt-1 text-sm font-semibold text-slate-400">
@@ -19,7 +19,7 @@ export function LoadingState({
         {[0, 1, 2].map((item) => (
           <div
             key={item}
-            className="h-28 animate-pulse rounded-xl border border-slate-100 bg-slate-50"
+            className="h-28 animate-pulse rounded-xl bg-white/40"
           />
         ))}
       </div>

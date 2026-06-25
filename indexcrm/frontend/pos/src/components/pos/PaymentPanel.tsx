@@ -101,15 +101,15 @@ export function PaymentPanel({
     }`;
 
   return (
-    <section className="no-print border-b border-slate-200 bg-white p-4">
+    <section className="glass no-print border-b border-white/20 p-4">
       <div className="flex gap-2">
         <button
           type="button"
           onClick={() => setMode("cash")}
-          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition backdrop-blur-sm ${
             mode === "cash"
-              ? "border-emerald-200 bg-emerald-50 text-emerald-700 shadow-sm"
-              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              ? "border-emerald-200/60 bg-emerald-50/80 text-emerald-700 shadow-glass"
+              : "border-white/30 bg-white/50 text-slate-600 hover:bg-white/70"
           }`}
         >
           <Banknote aria-hidden="true" className="h-4 w-4" />
@@ -118,10 +118,10 @@ export function PaymentPanel({
         <button
           type="button"
           onClick={() => setMode("card")}
-          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition backdrop-blur-sm ${
             mode === "card"
-              ? "border-primary-200 bg-primary-50 text-primary-700 shadow-sm"
-              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              ? "border-primary-200/60 bg-primary-50/80 text-primary-700 shadow-glass"
+              : "border-white/30 bg-white/50 text-slate-600 hover:bg-white/70"
           }`}
         >
           <CreditCard aria-hidden="true" className="h-4 w-4" />
@@ -130,10 +130,10 @@ export function PaymentPanel({
         <button
           type="button"
           onClick={() => setMode("mixed")}
-          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-xl border py-2.5 text-xs font-bold uppercase tracking-wider transition backdrop-blur-sm ${
             mode === "mixed"
-              ? "border-amber-200 bg-amber-50 text-amber-700 shadow-sm"
-              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              ? "border-amber-200/60 bg-amber-50/80 text-amber-700 shadow-glass"
+              : "border-white/30 bg-white/50 text-slate-600 hover:bg-white/70"
           }`}
         >
           <SplitSquareHorizontal aria-hidden="true" className="h-4 w-4" />
@@ -152,7 +152,7 @@ export function PaymentPanel({
             onFocus={(event) => event.target.select()}
             disabled={mode === "card"}
             inputMode="decimal"
-            className="h-11 w-full rounded-xl border border-slate-200 px-3 text-lg font-bold text-slate-900 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20 disabled:bg-slate-50 disabled:text-slate-400"
+            className="glass-input h-11 w-full rounded-xl px-3 text-lg font-bold text-slate-900 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20 disabled:opacity-50"
           />
         </label>
         <label className="block">
@@ -165,13 +165,13 @@ export function PaymentPanel({
             onFocus={(event) => event.target.select()}
             disabled={mode === "cash"}
             inputMode="decimal"
-            className="h-11 w-full rounded-xl border border-slate-200 px-3 text-lg font-bold text-slate-900 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20 disabled:bg-slate-50 disabled:text-slate-400"
+            className="glass-input h-11 w-full rounded-xl px-3 text-lg font-bold text-slate-900 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20 disabled:opacity-50"
           />
         </label>
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-2">
-        <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+        <div className="glass-card rounded-xl p-3">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
             To'landi
           </div>
@@ -179,7 +179,7 @@ export function PaymentPanel({
             {formatMoney(paidAmount)}
           </div>
         </div>
-        <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+        <div className="glass-card rounded-xl p-3">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
             Qaytim
           </div>
@@ -190,10 +190,10 @@ export function PaymentPanel({
       </div>
 
       <div
-        className={`mt-3 flex min-h-11 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold ${
+        className={`mt-3 flex min-h-11 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold backdrop-blur-sm ${
           canComplete
-            ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-            : "border-amber-200 bg-amber-50 text-amber-800"
+            ? "border-emerald-200/60 bg-emerald-50/80 text-emerald-800"
+            : "border-amber-200/60 bg-amber-50/80 text-amber-800"
         }`}
       >
         {canComplete ? (
@@ -212,7 +212,7 @@ export function PaymentPanel({
       </div>
 
       {isOfflineSale ? (
-        <div className="mt-2 animate-fade-in rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-xs font-bold text-amber-800">
+        <div className="mt-2 animate-fade-in rounded-xl border border-amber-200/60 bg-amber-50/80 px-4 py-2.5 text-xs font-bold text-amber-800 backdrop-blur-sm">
           Savdo ushbu qurilmada saqlanadi. Yakuniy server chek raqami internet
           qaytganda qo'lda sinxronlashdan keyin chiqadi.
         </div>
@@ -224,8 +224,8 @@ export function PaymentPanel({
         disabled={!canComplete}
         className={`mt-3 flex h-14 w-full items-center justify-center gap-2 rounded-xl text-base font-bold uppercase tracking-wider transition ${
           canComplete
-            ? "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/25 hover:from-emerald-400 hover:to-emerald-500 hover:shadow-emerald-500/35 active:scale-[0.98]"
-            : "cursor-not-allowed bg-slate-100 text-slate-400"
+            ? "bg-gradient-to-r from-emerald-500/90 to-emerald-600/90 text-white shadow-lg shadow-emerald-500/25 backdrop-blur-sm hover:from-emerald-400/90 hover:to-emerald-500/90 hover:shadow-emerald-500/35 active:scale-[0.98]"
+            : "cursor-not-allowed bg-white/30 text-slate-400 backdrop-blur-sm"
         }`}
       >
         {loading ? (

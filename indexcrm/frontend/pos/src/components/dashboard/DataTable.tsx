@@ -33,9 +33,9 @@ export function DataTable<T>({
   emptyDescription,
 }: DataTableProps<T>) {
   return (
-    <section className="overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm">
+    <section className="glass-card overflow-hidden rounded-xl shadow-glass">
       {title ? (
-        <div className="border-b border-slate-100 px-5 py-4">
+        <div className="border-b border-white/20 px-5 py-4">
           <h2 className="text-base font-black tracking-tight text-slate-900">
             {title}
           </h2>
@@ -47,7 +47,7 @@ export function DataTable<T>({
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse text-sm">
             <thead>
-              <tr className="border-b border-slate-100 bg-slate-50/80 text-xs uppercase text-slate-500">
+              <tr className="border-b border-white/20 bg-white/30 text-xs uppercase text-slate-500">
                 {columns.map((column) => (
                   <th
                     key={column.key}
@@ -62,7 +62,7 @@ export function DataTable<T>({
               {rows.map((row, rowIndex) => (
                 <tr
                   key={rowKey ? rowKey(row, rowIndex) : rowIndex}
-                  className="border-b border-slate-100 last:border-0 transition hover:bg-primary-50/50"
+                  className="border-b border-white/20 last:border-0 transition hover:bg-white/30"
                 >
                   {columns.map((column) => (
                     <td

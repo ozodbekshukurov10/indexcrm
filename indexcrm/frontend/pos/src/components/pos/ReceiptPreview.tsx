@@ -81,7 +81,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
   const canPrint = Boolean(sale) && !receiptQuery.isLoading;
 
   return (
-    <section className="print-panel flex min-h-0 flex-1 flex-col bg-slate-50 p-3">
+    <section className="print-panel flex min-h-0 flex-1 flex-col p-3">
       <div className="no-print mb-2 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500">
           <ReceiptText aria-hidden="true" className="h-4 w-4" />
@@ -104,7 +104,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
           />
         </div>
       </div>
-      <div className="receipt-paper min-h-0 flex-1 overflow-y-auto rounded-xl border border-slate-200 bg-white p-4 font-mono text-[13px] leading-tight shadow-sm">
+      <div className="receipt-paper glass-card min-h-0 flex-1 overflow-y-auto rounded-xl p-4 font-mono text-[13px] leading-tight shadow-glass">
         {!sale ? (
           <div className="flex h-full items-center justify-center text-center font-sans text-sm font-semibold text-slate-400">
             Chekni ko'rish uchun savdoni yakunlang.
@@ -117,7 +117,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
         ) : (
           <>
             {receiptQuery.isError ? (
-              <div className="no-print mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 font-sans text-xs font-bold text-amber-800">
+              <div className="no-print mb-3 rounded-lg border border-amber-200/60 bg-amber-50/80 px-3 py-2 font-sans text-xs font-bold text-amber-800 backdrop-blur-sm">
                 Chek ma'lumotlarini yangilab bo'lmadi. Savdo ma'lumotlari ko'rsatilmoqda.
                 <button
                   type="button"
@@ -140,7 +140,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
               {customerName ? <div className="text-slate-500">Mijoz: {customerName}</div> : null}
             </div>
 
-            <div className="my-3 border-t border-dashed border-slate-300" />
+            <div className="my-3 border-t border-dashed border-white/40" />
             {receiptItems.map((item, index) => {
               const row = item as Record<string, unknown>;
               const name = pickText(row, ["product_name", "name"], "Mahsulot");
@@ -169,7 +169,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
               );
             })}
 
-            <div className="my-3 border-t border-dashed border-slate-300" />
+            <div className="my-3 border-t border-dashed border-white/40" />
             <div className="flex justify-between text-slate-600">
               <span>Oraliq jami</span>
               <span>{formatMoney(subtotal)}</span>
@@ -201,7 +201,7 @@ export function ReceiptPreview({ sale, onNewSale }: ReceiptPreviewProps) {
               </div>
             ) : null}
 
-            <div className="my-3 border-t border-dashed border-slate-300" />
+            <div className="my-3 border-t border-dashed border-white/40" />
             {receiptPayments.length > 0 ? (
               receiptPayments.map((payment, index) => {
                 const row = payment as Record<string, unknown>;

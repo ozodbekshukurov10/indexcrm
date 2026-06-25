@@ -83,7 +83,7 @@ export function ErrorState({
   const resolvedDescription = formatErrorDescription(error, description);
 
   return (
-    <section className="rounded-xl border border-rose-100 bg-rose-50 p-5 shadow-sm">
+    <section className="glass-card rounded-xl p-5 shadow-glass">
       <div className="flex items-start gap-3">
         <AlertCircle aria-hidden="true" className="mt-0.5 h-5 w-5 text-rose-500" />
         <div className="min-w-0 flex-1">
@@ -95,7 +95,7 @@ export function ErrorState({
             <button
               type="button"
               onClick={onRetry}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-rose-200 bg-white px-4 py-2 text-sm font-bold text-rose-700 shadow-sm hover:bg-rose-50 active:scale-[0.97]"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/40 px-4 py-2 text-sm font-bold text-rose-700 shadow-glass backdrop-blur-sm hover:bg-white/60 active:scale-[0.97]"
             >
               <RotateCw aria-hidden="true" className="h-4 w-4" />
               Qayta urinish

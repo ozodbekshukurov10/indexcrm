@@ -54,6 +54,7 @@ CATEGORIES = {
     "grocery": "Don mahsulotlari",
     "kids": "Bolalar mahsulotlari",
     "frozen": "Muzqaymoq va sovuq mahsulotlar",
+    "construction": "Qurilish mollari",
 }
 
 BRANDS = {
@@ -69,6 +70,7 @@ BRANDS = {
     "clean": "Toza Uy",
     "daily": "Har Kun",
     "kids": "Bolajon",
+    "master": "Master Stroy",
 }
 
 UNITS = {
@@ -129,9 +131,12 @@ PRODUCTS = [
     ("IDX-SOAP", "860000000047", "Sovun", "household", "clean", "pcs", "4000.00", "7500.00", "40.000"),
     ("IDX-DETERGENT", "860000000048", "Kir yuvish kukuni 1kg", "household", "clean", "pack", "18000.00", "29000.00", "22.000"),
     ("IDX-DISH-GEL", "860000000049", "Idish yuvish suyuqligi", "household", "clean", "pcs", "9000.00", "15000.00", "26.000"),
+    ("IDX-MASTERKLEEN", "860000000066", "Master Stroy universal klei 500ml", "construction", "master", "pcs", "12000.00", "22000.00", "12.000"),
+    ("IDX-SHPAKLYOVKA", "860000000067", "Master Stroy shpaklyovka 2kg", "construction", "master", "pack", "18000.00", "32000.00", "10.000"),
     ("IDX-SPONGE", "860000000050", "Idish gubkasi", "household", "clean", "pack", "2500.00", "5000.00", "36.000"),
     ("IDX-NAPKINS", "860000000051", "Salfetka", "household", "clean", "pack", "3500.00", "6500.00", "45.000"),
     ("IDX-TRASH-BAG", "860000000052", "Chiqindi paketi", "household", "clean", "pack", "7000.00", "12000.00", "16.000"),
+    ("IDX-LIQ-GLASS", "860000000065", "Suyuq shisha 1L", "construction", "master", "pcs", "15000.00", "28000.00", "20.000"),
     ("IDX-SHAMPOO", "860000000053", "Shampun", "personal-care", "daily", "pcs", "16000.00", "26000.00", "18.000"),
     ("IDX-TOOTHPASTE", "860000000054", "Tish pastasi", "personal-care", "daily", "pcs", "8000.00", "13500.00", "28.000"),
     ("IDX-TOOTHBRUSH", "860000000055", "Tish cho'tkasi", "personal-care", "daily", "pcs", "5000.00", "9000.00", "30.000"),
@@ -179,7 +184,7 @@ PURCHASES = [
     ("UZ-DEMO-001", "Toshkent Ichimlik Savdo", -18, [("IDX-COLA-1000", "24.000"), ("IDX-PEPSI-1000", "24.000"), ("IDX-WATER-1500", "36.000")], "120000.00"),
     ("UZ-DEMO-002", "Andijon Non Taminot", -12, [("IDX-BREAD-WHT", "20.000"), ("IDX-BATON", "16.000"), ("IDX-LAVASH", "12.000")], "80000.00"),
     ("UZ-DEMO-003", "Vodiy Sut Mahsulotlari", -9, [("IDX-MILK-1L", "24.000"), ("IDX-KEFIR-1L", "18.000"), ("IDX-YOGURT", "36.000")], "160000.00"),
-    ("UZ-DEMO-004", "Baraka Maishiy Tovarlar", -7, [("IDX-DETERGENT", "10.000"), ("IDX-DISH-GEL", "12.000"), ("IDX-SOAP", "18.000")], "90000.00"),
+    ("UZ-DEMO-004", "Baraka Maishiy Tovarlar", -7, [("IDX-DETERGENT", "10.000"), ("IDX-DISH-GEL", "12.000"), ("IDX-SOAP", "18.000"), ("IDX-LIQ-GLASS", "15.000"), ("IDX-MASTERKLEEN", "12.000"), ("IDX-SHPAKLYOVKA", "10.000")], "90000.00"),
     ("UZ-DEMO-005", "Fayzli Don Ombori", -5, [("IDX-RICE-1KG", "30.000"), ("IDX-SUGAR-1KG", "30.000"), ("IDX-FLOUR-1KG", "40.000")], "180000.00"),
     ("UZ-DEMO-006", "Universal Market Servis", -3, [("IDX-SNICKERS", "24.000"), ("IDX-OREO", "18.000"), ("IDX-LAYS", "16.000")], "110000.00"),
 ]
@@ -195,6 +200,7 @@ SALE_TEMPLATES = [
     [("IDX-KETCHUP", "1.000"), ("IDX-MAYO", "1.000"), ("IDX-PASTA-400", "2.000")],
     [("IDX-SOAP", "3.000"), ("IDX-TOOTHPASTE", "1.000")],
     [("IDX-ICECREAM", "3.000"), ("IDX-FANTA-1000", "1.000")],
+    [("IDX-LIQ-GLASS", "2.000"), ("IDX-MASTERKLEEN", "1.000"), ("IDX-SHPAKLYOVKA", "1.000")],
 ]
 
 EXPENSES = [

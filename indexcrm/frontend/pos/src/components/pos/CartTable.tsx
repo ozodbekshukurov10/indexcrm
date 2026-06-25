@@ -15,8 +15,8 @@ type CartTableProps = {
 
 export function CartTable({ items, onQuantityChange, onRemove }: CartTableProps) {
   return (
-    <section className="flex min-h-0 flex-1 flex-col bg-white">
-      <div className="grid grid-cols-[1fr_132px_120px_56px] border-b border-slate-200 bg-white px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+    <section className="flex min-h-0 flex-1 flex-col bg-white/30 backdrop-blur-sm">
+      <div className="grid grid-cols-[1fr_132px_120px_56px] border-b border-white/20 bg-white/30 px-4 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
         <span>Mahsulot</span>
         <span className="text-center">Miqdor</span>
         <span className="text-right">Jami</span>
@@ -43,7 +43,7 @@ export function CartTable({ items, onQuantityChange, onRemove }: CartTableProps)
           items.map((item) => (
             <div
               key={item.product.id}
-              className="grid min-h-24 grid-cols-[1fr_132px_120px_56px] items-center gap-3 border-b border-slate-100 px-4 py-3 transition hover:bg-slate-50/50"
+              className="grid min-h-24 grid-cols-[1fr_132px_120px_56px] items-center gap-3 border-b border-white/20 px-4 py-3 transition hover:bg-white/30"
             >
               <div className="min-w-0">
                 <div className="truncate text-base font-black text-slate-900">
@@ -70,7 +70,7 @@ export function CartTable({ items, onQuantityChange, onRemove }: CartTableProps)
                     onQuantityChange(item.product.id, Number(event.target.value))
                   }
                   onFocus={(event) => event.target.select()}
-                  className="h-9 w-14 rounded-lg border border-slate-200 bg-white text-center text-base font-bold"
+                  className="glass-input h-9 w-14 rounded-lg text-center text-base font-bold"
                   inputMode="decimal"
                   min="0"
                   step="1"

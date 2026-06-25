@@ -103,13 +103,13 @@ export function BarcodeInput({ disabled, busy, onScan }: BarcodeInputProps) {
           aria-label="Barcode yoki SKU"
           title="Barcode yoki SKU"
           inputMode="search"
-          className="h-14 w-full rounded-xl border border-slate-200/80 bg-white pl-12 pr-4 text-xl font-bold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+          className="glass-input h-14 w-full rounded-xl pl-12 pr-4 text-xl font-bold text-slate-900 placeholder:text-slate-400 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
         />
       </div>
       <button
         type="submit"
         disabled={disabled || !code.trim()}
-        className="inline-flex min-w-28 items-center justify-center gap-2 rounded-xl border border-primary-600 bg-primary-600 px-4 text-sm font-bold text-white shadow-sm transition hover:bg-primary-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+        className="inline-flex min-w-28 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-500/90 to-primary-600/90 px-4 text-sm font-bold text-white shadow-glass backdrop-blur-sm transition hover:from-primary-400/90 hover:to-primary-500/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
       >
         {isBusy ? (
           <Loader2 aria-hidden="true" className="h-5 w-5 animate-spin" />

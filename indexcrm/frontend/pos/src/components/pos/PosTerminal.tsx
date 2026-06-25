@@ -360,17 +360,17 @@ export function PosTerminal() {
   return (
     <PosShell>
       <div className="grid h-[calc(100vh-3.5rem)] grid-cols-1 overflow-hidden lg:grid-cols-[32%_1fr_360px]">
-        <div className="no-print flex min-h-0 flex-col border-r border-slate-200">
-          <div className="grid gap-2 border-b border-slate-200 bg-white p-3">
+        <div className="no-print flex min-h-0 flex-col border-r border-white/20">
+          <div className="glass grid gap-2 border-b border-white/20 p-3">
             <BarcodeInput busy={scanLoading} onScan={handleScan} />
             <OfflineSyncStatus />
           </div>
           <ProductSearch onSelectProduct={addToCart} />
         </div>
 
-        <div className="flex min-h-0 flex-col border-r border-slate-200">
+        <div className="flex min-h-0 flex-col border-r border-white/20">
           {notice ? (
-            <div className="no-print flex min-h-11 items-center gap-2 border-b border-amber-200 bg-amber-50 px-4 text-sm font-bold text-amber-800">
+            <div className="no-print flex min-h-11 items-center gap-2 border-b border-amber-200/40 bg-amber-50/60 px-4 text-sm font-bold text-amber-800 backdrop-blur-sm">
               <AlertTriangle aria-hidden="true" className="h-4 w-4" />
               <span className="truncate">{notice}</span>
             </div>

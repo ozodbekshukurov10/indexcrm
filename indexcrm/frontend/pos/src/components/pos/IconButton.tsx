@@ -10,11 +10,11 @@ type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const tones = {
-  neutral: "border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300",
-  primary: "border-primary-600 bg-primary-600 text-white hover:bg-primary-500",
-  danger: "border-rose-600 bg-rose-600 text-white hover:bg-rose-500",
-  success: "border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-500",
-  warning: "border-amber-300 bg-amber-200 text-amber-900 hover:bg-amber-300",
+  neutral: "glass border-white/30 text-slate-700 hover:bg-white/70",
+  primary: "bg-gradient-to-r from-primary-500/90 to-primary-600/90 text-white hover:from-primary-400/90 hover:to-primary-500/90",
+  danger: "bg-gradient-to-r from-rose-500/90 to-rose-600/90 text-white hover:from-rose-400/90 hover:to-rose-500/90",
+  success: "bg-gradient-to-r from-emerald-500/90 to-emerald-600/90 text-white hover:from-emerald-400/90 hover:to-emerald-500/90",
+  warning: "glass border-amber-300/50 bg-amber-200/50 text-amber-900 hover:bg-amber-300/60",
 };
 
 export function IconButton({
@@ -30,7 +30,7 @@ export function IconButton({
       {...props}
       aria-label={label}
       title={label}
-      className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm font-bold shadow-sm transition active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none disabled:active:scale-100 ${tones[tone]} ${className}`}
+      className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border px-3 py-2 text-sm font-bold shadow-glass backdrop-blur-sm transition active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none disabled:active:scale-100 ${tones[tone]} ${className}`}
     >
       {icon}
       <span className={hideLabel ? "sr-only" : undefined}>{label}</span>

@@ -20,9 +20,9 @@ export function CartSummary({
   onClear,
 }: CartSummaryProps) {
   return (
-    <section className="no-print border-t border-slate-200 bg-white p-4">
+    <section className="glass no-print border-t border-white/20 p-4">
       <div className="grid grid-cols-3 gap-3">
-        <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+        <div className="glass-card rounded-xl p-3">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
             Mahsulot soni
           </div>
@@ -30,7 +30,7 @@ export function CartSummary({
             {itemCount}
           </div>
         </div>
-        <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+        <div className="glass-card rounded-xl p-3">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
             Oraliq jami
           </div>
@@ -38,7 +38,7 @@ export function CartSummary({
             {formatMoney(subtotal)}
           </div>
         </div>
-        <div className="rounded-xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 to-emerald-100/80 p-3">
+        <div className="glass-card rounded-xl border-emerald-200/40 bg-gradient-to-br from-emerald-50/80 to-emerald-100/60 p-3">
           <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">
             Jami
           </div>

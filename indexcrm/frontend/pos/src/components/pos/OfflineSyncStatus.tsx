@@ -22,15 +22,15 @@ function formatQueuedTime(value: string) {
 
 function statusClassName(status: PendingSaleRecord["status"]) {
   if (status === "synced") {
-    return "bg-emerald-100 text-emerald-700";
+    return "bg-emerald-100/80 text-emerald-700";
   }
   if (status === "failed") {
-    return "bg-rose-100 text-rose-700";
+    return "bg-rose-100/80 text-rose-700";
   }
   if (status === "syncing") {
-    return "bg-primary-100 text-primary-700";
+    return "bg-primary-100/80 text-primary-700";
   }
-  return "bg-amber-100 text-amber-800";
+  return "bg-amber-100/80 text-amber-800";
 }
 
 function statusLabel(status: PendingSaleRecord["status"]) {
@@ -120,10 +120,10 @@ export function OfflineSyncStatus() {
 
   return (
     <div
-      className={`grid min-h-10 gap-2 rounded-xl border px-3 py-2.5 text-xs font-bold ${
+      className={`grid min-h-10 gap-2 rounded-xl border px-3 py-2.5 text-xs font-bold backdrop-blur-sm ${
         connectivity.status === "online"
-          ? "border-emerald-200/80 bg-emerald-50/80 text-emerald-800"
-          : "border-amber-200/80 bg-amber-50/80 text-amber-800"
+          ? "border-emerald-200/60 bg-emerald-50/80 text-emerald-800"
+          : "border-amber-200/60 bg-amber-50/80 text-amber-800"
       }`}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -141,7 +141,7 @@ export function OfflineSyncStatus() {
             disabled={disabled}
             onClick={handleSync}
             title={disabled ? blockReason : "Kutilayotgan va xato savdolarni sinxronlash"}
-            className="inline-flex h-7 items-center gap-1 rounded-lg border border-current px-2 text-[10px] font-bold uppercase tracking-wider disabled:cursor-not-allowed disabled:opacity-45"
+            className="inline-flex h-7 items-center gap-1 rounded-lg border border-current/60 bg-white/40 px-2 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-45"
           >
             {syncing ? (
               <Loader2 aria-hidden="true" className="h-3 w-3 animate-spin" />
@@ -152,7 +152,7 @@ export function OfflineSyncStatus() {
           </button>
           <a
             href="/dashboard/offline-queue"
-            className="inline-flex h-7 items-center rounded-lg border border-current px-2 text-[10px] font-bold uppercase tracking-wider"
+            className="inline-flex h-7 items-center rounded-lg border border-current/60 bg-white/40 px-2 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm"
           >
             Ko'rib chiqish
           </a>
@@ -206,14 +206,14 @@ export function OfflineSyncStatus() {
           {recentSales.map((sale) => (
             <div
               key={sale.id}
-              className="grid gap-1 rounded-lg bg-white/80 px-2.5 py-1.5 shadow-sm"
+              className="glass grid gap-1 rounded-lg px-2.5 py-1.5 shadow-glass"
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="truncate font-black text-slate-800">
                   {sale.serverReceiptNumber ?? sale.receiptFallback.receiptNumber}
                 </span>
                 <span
-                  className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${statusClassName(
+                  className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm ${statusClassName(
                     sale.status,
                   )}`}
                 >

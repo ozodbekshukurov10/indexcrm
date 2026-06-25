@@ -180,7 +180,7 @@ export function ProductsDashboardPage() {
               onChange={(event) => setSearch(event.target.value)}
               aria-label="Mahsulotlarni qidirish"
               placeholder="Mahsulotlarni qidirish"
-              className="h-11 rounded border border-slate-300 px-3 font-semibold shadow-panel"
+              className="glass-input h-11 rounded-xl px-3 font-semibold"
             />
             <IconButton
               type="button"
@@ -220,7 +220,7 @@ export function ProductsDashboardPage() {
       {form ? (
         <form
           onSubmit={handleSubmit}
-          className="rounded border border-slate-200 bg-white p-4 shadow-panel"
+          className="glass-card rounded-xl p-4 shadow-glass"
         >
           <div className="mb-3 flex items-center justify-between gap-3">
             <h2 className="text-base font-black text-slate-950">
@@ -239,7 +239,7 @@ export function ProductsDashboardPage() {
               <input
                 value={form.name}
                 onChange={(event) => setForm({ ...form, name: event.target.value })}
-                className="h-11 rounded border border-slate-300 px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               />
             </label>
             <label className="grid gap-1 text-sm font-bold text-slate-700">
@@ -247,7 +247,7 @@ export function ProductsDashboardPage() {
               <select
                 value={form.category}
                 onChange={(event) => setForm({ ...form, category: event.target.value })}
-                className="h-11 rounded border border-slate-300 bg-white px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               >
                 <option value="">Kategoriya tanlang</option>
                 {categories.map((category) => (
@@ -262,7 +262,7 @@ export function ProductsDashboardPage() {
               <select
                 value={form.unit}
                 onChange={(event) => setForm({ ...form, unit: event.target.value })}
-                className="h-11 rounded border border-slate-300 bg-white px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               >
                 <option value="">Birlik tanlang</option>
                 {units.map((unit) => (
@@ -277,7 +277,7 @@ export function ProductsDashboardPage() {
               <input
                 value={form.sku}
                 onChange={(event) => setForm({ ...form, sku: event.target.value })}
-                className="h-11 rounded border border-slate-300 px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               />
             </label>
             <label className="grid gap-1 text-sm font-bold text-slate-700">
@@ -285,7 +285,7 @@ export function ProductsDashboardPage() {
               <input
                 value={form.barcode}
                 onChange={(event) => setForm({ ...form, barcode: event.target.value })}
-                className="h-11 rounded border border-slate-300 px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               />
             </label>
             <label className="grid gap-1 text-sm font-bold text-slate-700">
@@ -293,7 +293,7 @@ export function ProductsDashboardPage() {
               <select
                 value={form.brand}
                 onChange={(event) => setForm({ ...form, brand: event.target.value })}
-                className="h-11 rounded border border-slate-300 bg-white px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               >
                 <option value="">Brendsiz</option>
                 {brands.map((brand) => (
@@ -311,7 +311,7 @@ export function ProductsDashboardPage() {
                   setForm({ ...form, cost_price: event.target.value })
                 }
                 inputMode="decimal"
-                className="h-11 rounded border border-slate-300 px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               />
             </label>
             <label className="grid gap-1 text-sm font-bold text-slate-700">
@@ -322,7 +322,7 @@ export function ProductsDashboardPage() {
                   setForm({ ...form, selling_price: event.target.value })
                 }
                 inputMode="decimal"
-                className="h-11 rounded border border-slate-300 px-3 shadow-panel"
+                className="glass-input h-11 rounded-xl px-3"
               />
             </label>
             <label className="flex items-center gap-2 self-end text-sm font-bold text-slate-700">
@@ -338,7 +338,7 @@ export function ProductsDashboardPage() {
             </label>
           </div>
           {formMessage ? (
-            <div className="mt-3 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-bold text-amber-900">
+            <div className="mt-3 rounded-xl border border-amber-200/60 bg-amber-50/80 px-3 py-2 text-sm font-bold text-amber-900 backdrop-blur-sm">
               {formMessage}
             </div>
           ) : null}
@@ -352,7 +352,7 @@ export function ProductsDashboardPage() {
           />
         </form>
       ) : formMessage ? (
-        <div className="rounded border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-bold text-emerald-900">
+        <div className="rounded-xl border border-emerald-200/60 bg-emerald-50/80 px-3 py-2 text-sm font-bold text-emerald-900 backdrop-blur-sm">
           {formMessage}
         </div>
       ) : null}

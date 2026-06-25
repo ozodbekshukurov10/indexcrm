@@ -434,7 +434,7 @@ export function CashierSessionPanel() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="no-print border-b border-slate-200 bg-slate-50 p-4"
+      className="glass no-print border-b border-white/20 p-4"
     >
       <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600">
         <UserCog aria-hidden="true" className="h-4 w-4" />
@@ -442,12 +442,12 @@ export function CashierSessionPanel() {
       </div>
 
       <div
-        className={`mb-3 flex min-h-10 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold ${
+        className={`mb-3 flex min-h-10 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold backdrop-blur-sm ${
           shiftLoading
-            ? "border-blue-200 bg-blue-50 text-blue-700"
+            ? "border-blue-200/60 bg-blue-50/80 text-blue-700"
             : sessionReady
-              ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-              : "border-amber-200 bg-amber-50 text-amber-800"
+              ? "border-emerald-200/60 bg-emerald-50/80 text-emerald-700"
+              : "border-amber-200/60 bg-amber-50/80 text-amber-800"
         }`}
       >
         {shiftLoading ? (
@@ -467,19 +467,19 @@ export function CashierSessionPanel() {
       </div>
 
       <div className="mb-3 grid grid-cols-2 gap-2 text-xs font-bold">
-        <div className="rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-sm">
+        <div className="glass-card rounded-xl px-3 py-2.5">
           <div className="text-[11px] uppercase tracking-wider text-slate-500">Filial</div>
           <div className="mt-0.5 truncate text-slate-800">
             {selectedBranch?.name ?? (branchId ? "Tanlangan filial" : "Yo'q")}
           </div>
         </div>
-        <div className="rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-sm">
+        <div className="glass-card rounded-xl px-3 py-2.5">
           <div className="text-[11px] uppercase tracking-wider text-slate-500">Ombor</div>
           <div className="mt-0.5 truncate text-slate-800">
             {selectedWarehouse?.name ?? (warehouseId ? "Tanlangan ombor" : "Yo'q")}
           </div>
         </div>
-        <div className="rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-sm">
+        <div className="glass-card rounded-xl px-3 py-2.5">
           <div className="text-[11px] uppercase tracking-wider text-slate-500">Kassa</div>
           <div className="mt-0.5 truncate text-slate-800">
             {selectedCashDesk
@@ -489,7 +489,7 @@ export function CashierSessionPanel() {
                 : "Tanlanmagan"}
           </div>
         </div>
-        <div className="rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 shadow-sm">
+        <div className="glass-card rounded-xl px-3 py-2.5">
           <div className="text-[11px] uppercase tracking-wider text-slate-500">Smena</div>
           <div className="mt-0.5 truncate text-slate-800">
             {activeShiftId ? "Faol smena ochiq" : "Yo'q"}
@@ -498,7 +498,7 @@ export function CashierSessionPanel() {
       </div>
 
       {setupGuidance && !shiftLoading ? (
-        <div className="mb-3 animate-fade-in rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800">
+        <div className="mb-3 animate-fade-in rounded-xl border border-amber-200/60 bg-amber-50/80 px-3 py-2 text-xs font-bold text-amber-800 backdrop-blur-sm">
           {setupGuidance}
         </div>
       ) : null}
@@ -508,13 +508,13 @@ export function CashierSessionPanel() {
           value={cashierName}
           onChange={(event) => setCashierName(event.target.value)}
           placeholder="Kassir"
-          className="h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+          className="glass-input h-10 rounded-xl px-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
         />
         <input
           value={cashierEmail}
           onChange={(event) => setCashierEmail(event.target.value)}
           placeholder="Email"
-          className="h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+          className="glass-input h-10 rounded-xl px-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
         />
         <label className="block">
           <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-slate-500">
@@ -524,7 +524,7 @@ export function CashierSessionPanel() {
             value={branchId}
             onChange={(event) => handleBranchChange(event.target.value)}
             disabled={branchesQuery.isFetching && branches.length === 0}
-            className="h-10 w-full rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold text-slate-900 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 w-full rounded-xl px-3 text-sm font-semibold text-slate-900 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           >
             <option value="">
               {branchesQuery.isFetching && branches.length === 0
@@ -548,7 +548,7 @@ export function CashierSessionPanel() {
             value={warehouseId}
             onChange={(event) => handleWarehouseChange(event.target.value)}
             disabled={!branchId || warehousesQuery.isFetching && warehouses.length === 0}
-            className="h-10 w-full rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold text-slate-900 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 w-full rounded-xl px-3 text-sm font-semibold text-slate-900 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           >
             <option value="">
               {!branchId
@@ -574,7 +574,7 @@ export function CashierSessionPanel() {
             value={cashDeskId}
             onChange={(event) => handleCashDeskChange(event.target.value)}
             disabled={!branchId || cashDesksQuery.isFetching && cashDesks.length === 0}
-            className="h-10 w-full rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold text-slate-900 shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 w-full rounded-xl px-3 text-sm font-semibold text-slate-900 transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           >
             <option value="">
               {!branchId
@@ -596,30 +596,30 @@ export function CashierSessionPanel() {
           <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-slate-500">
             Kassa hisob
           </span>
-          <div className="flex h-10 items-center rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-xs font-bold text-slate-500 shadow-sm">
+          <div className="glass-card flex h-10 items-center rounded-xl px-3 text-xs font-bold text-slate-500">
             {branchId ? "Filialning asosiy kassasi backend tomonidan belgilanadi" : "Avval filialni tanlang"}
           </div>
         </div>
       </div>
 
       {locationLoading ? (
-        <div className="mb-3 flex animate-fade-in items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-bold text-blue-700">
+        <div className="mb-3 flex animate-fade-in items-center gap-2 rounded-xl border border-blue-200/60 bg-blue-50/80 px-3 py-2 text-xs font-bold text-blue-700 backdrop-blur-sm">
           <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
           Filial va ombor variantlari yuklanmoqda.
         </div>
       ) : locationMessage ? (
-        <div className="mb-3 animate-fade-in rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800">
+        <div className="mb-3 animate-fade-in rounded-xl border border-amber-200/60 bg-amber-50/80 px-3 py-2 text-xs font-bold text-amber-800 backdrop-blur-sm">
           {locationMessage}
         </div>
       ) : null}
 
-      <div className="mb-3 rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 text-xs font-bold text-slate-700 shadow-sm">
+      <div className="glass-card mb-3 rounded-xl px-3 py-2.5 text-xs font-bold text-slate-700">
         {activeShiftId
           ? `Faol smena tanlangan: ${activeShift.data?.branch_name ?? selectedBranch?.name ?? "tanlangan filial"}`
           : "Hali faol smena tanlanmagan."}
       </div>
 
-      <details className="mb-3 rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 text-xs font-bold text-slate-600 shadow-sm">
+      <details className="glass-card mb-3 rounded-xl px-3 py-2.5 text-xs font-bold text-slate-600">
         <summary className="cursor-pointer text-[11px] uppercase tracking-wider text-slate-500">
           Qo'lda ID / token
         </summary>
@@ -628,39 +628,39 @@ export function CashierSessionPanel() {
             value={branchId}
             onChange={(event) => setBranchId(event.target.value)}
             placeholder="Filial ID"
-            className="h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
           <input
             value={warehouseId}
             onChange={(event) => setWarehouseId(event.target.value)}
             placeholder="Ombor ID"
-            className="h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
           <input
             value={cashDeskId}
             onChange={(event) => setCashDeskId(event.target.value)}
             placeholder="Kassa ID"
-            className="h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
           <input
             value={activeShiftId}
             readOnly
             placeholder="Faol smena"
-            className="h-10 rounded-xl border border-slate-200/80 bg-slate-50 px-3 text-sm font-semibold text-slate-500 shadow-sm"
+            className="glass-input h-10 rounded-xl px-3 text-sm font-semibold text-slate-500"
           />
           <input
             type="password"
             value={authToken}
             onChange={(event) => setAuthToken(event.target.value)}
             placeholder="Bearer token"
-            className="col-span-2 h-10 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input col-span-2 h-10 rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
         </div>
       </details>
 
       <button
         type="submit"
-        className="mb-3 flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-primary-200 bg-primary-50 px-3 text-xs font-bold text-primary-700 shadow-sm transition hover:bg-primary-100 active:scale-[0.98]"
+        className="glass mb-3 flex h-10 w-full items-center justify-center gap-2 rounded-xl px-3 text-xs font-bold text-primary-700 shadow-glass transition hover:bg-white/70 active:scale-[0.98]"
       >
         <Save aria-hidden="true" className="h-4 w-4" />
         Sessiyani saqlash
@@ -675,7 +675,7 @@ export function CashierSessionPanel() {
             value={openingBalance}
             onChange={(event) => setOpeningBalance(event.target.value)}
             inputMode="decimal"
-            className="h-10 w-full rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 w-full rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
         </label>
         <label className="block">
@@ -686,7 +686,7 @@ export function CashierSessionPanel() {
             value={closingBalance}
             onChange={(event) => setClosingBalance(event.target.value)}
             inputMode="decimal"
-            className="h-10 w-full rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-semibold shadow-sm transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
+            className="glass-input h-10 w-full rounded-xl px-3 text-sm font-semibold transition focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20"
           />
         </label>
       </div>
@@ -696,7 +696,7 @@ export function CashierSessionPanel() {
           type="button"
           onClick={handleOpenShift}
           disabled={!branchId || Boolean(activeShiftId) || shiftActionPending}
-          className="flex h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-3 text-xs font-bold text-white shadow-sm shadow-emerald-500/20 transition hover:from-emerald-400 hover:to-emerald-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+          className="flex h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500/90 to-emerald-600/90 px-3 text-xs font-bold text-white shadow-glass backdrop-blur-sm transition hover:from-emerald-400/90 hover:to-emerald-500/90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
         >
           {openShift.isPending ? (
             <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -709,7 +709,7 @@ export function CashierSessionPanel() {
           type="button"
           onClick={handleCloseShift}
           disabled={!activeShiftId || shiftActionPending}
-          className="flex h-10 items-center justify-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 text-xs font-bold text-amber-700 shadow-sm transition hover:bg-amber-100 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+          className="flex h-10 items-center justify-center gap-2 rounded-xl border border-amber-200/60 bg-amber-50/80 px-3 text-xs font-bold text-amber-700 shadow-glass backdrop-blur-sm transition hover:bg-amber-100/70 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
         >
           {closeShift.isPending ? (
             <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -721,7 +721,7 @@ export function CashierSessionPanel() {
       </div>
 
       {shiftNotice ? (
-        <div className="mt-3 animate-fade-in rounded-xl border border-slate-200/80 bg-white px-3 py-2.5 text-xs font-bold text-slate-700 shadow-sm">
+        <div className="glass-card mt-3 animate-fade-in rounded-xl px-3 py-2.5 text-xs font-bold text-slate-700">
           {shiftNotice}
         </div>
       ) : null}

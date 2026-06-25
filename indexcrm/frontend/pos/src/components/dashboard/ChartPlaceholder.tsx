@@ -14,7 +14,7 @@ export function ChartPlaceholder({
   const maxValue = Math.max(...values, 0);
 
   return (
-    <section className="rounded-xl border border-slate-100 bg-white p-4 shadow-sm">
+    <section className="glass-card rounded-xl p-4 shadow-glass">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
           <h2 className="text-base font-bold text-slate-900">{title}</h2>
@@ -25,17 +25,17 @@ export function ChartPlaceholder({
         <BarChart3 aria-hidden="true" className="h-5 w-5 text-slate-400" />
       </div>
       {values.length > 0 && maxValue > 0 ? (
-        <div className="flex h-56 items-end gap-2 rounded-xl border border-slate-100 bg-slate-50 p-4">
+        <div className="flex h-56 items-end gap-2 rounded-xl bg-white/30 p-4 backdrop-blur-sm">
           {values.map((value, index) => (
             <div
               key={index}
-              className="flex-1 rounded-lg bg-primary-500"
+              className="flex-1 rounded-lg bg-gradient-to-t from-primary-500/80 to-primary-400/80 backdrop-blur-sm"
               style={{ height: `${Math.max(8, (value / maxValue) * 100)}%` }}
             />
           ))}
         </div>
       ) : (
-        <div className="flex h-56 items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 p-4 text-center">
+        <div className="flex h-56 items-center justify-center rounded-xl border border-dashed border-white/30 bg-white/20 p-4 text-center backdrop-blur-sm">
           <div>
             <BarChart3 aria-hidden="true" className="mx-auto h-8 w-8 text-slate-300" />
             <div className="mt-3 text-sm font-bold text-slate-500">

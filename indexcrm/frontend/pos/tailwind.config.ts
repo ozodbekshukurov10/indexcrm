@@ -20,6 +20,9 @@ const config: Config = {
         },
       },
       boxShadow: {
+        glass: "0 1px 3px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(15, 23, 42, 0.06)",
+        "glass-md": "0 4px 6px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(15, 23, 42, 0.06)",
+        "glass-lg": "0 10px 25px rgba(255, 255, 255, 0.3), 0 4px 10px rgba(15, 23, 42, 0.08)",
         panel: "0 1px 2px rgba(15, 23, 42, 0.08)",
         card: "0 1px 3px rgba(15, 23, 42, 0.1), 0 1px 2px rgba(15, 23, 42, 0.06)",
         elevated: "0 4px 6px rgba(15, 23, 42, 0.07), 0 10px 15px rgba(15, 23, 42, 0.1)",
